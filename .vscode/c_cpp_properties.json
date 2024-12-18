@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/homebrew/opt/avr-gcc@14/avr/include"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/opt/homebrew/opt/avr-gcc@14/bin/avr-gcc",
+            "compilerArgs": ["-Os", "-mmcu=attiny5"],
+            "cStandard": "c23",
+            "intelliSenseMode": "gcc-x86"
+        }
+    ],
+    "version": 4
+}
