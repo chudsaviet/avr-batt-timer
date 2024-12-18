@@ -1,5 +1,8 @@
+# MacOS
+.DS_Store
+
 # KiCad
-*-backup
+*-backups
 fp-info-cache
 *.lck
 
