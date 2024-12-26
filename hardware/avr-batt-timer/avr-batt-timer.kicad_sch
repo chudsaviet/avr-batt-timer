@@ -3505,7 +3505,7 @@
 				)
 			)
 		)
-		(property "Value" "~ 250R"
+		(property "Value" "~250R"
 			(at 198.12 97.79 90)
 			(effects
 				(font
@@ -3574,7 +3574,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~ 700R"
+		(property "Value" "~700R"
 			(at 219.71 50.7999 0)
 			(effects
 				(font
@@ -3776,7 +3776,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "D 15A"
 			(at 247.65 90.1699 90)
 			(effects
 				(font
@@ -4341,7 +4341,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~ 10K"
+		(property "Value" "~10K"
 			(at 207.01 109.2199 0)
 			(effects
 				(font
@@ -4613,7 +4613,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "ATtiny5-TS"
+		(property "Value" "ATtiny5"
 			(at 121.92 105.4099 0)
 			(effects
 				(font
@@ -5138,7 +5138,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "IRFZ44N_127"
+		(property "Value" "IRFZ44N"
 			(at 226.06 91.4399 0)
 			(effects
 				(font
@@ -5147,7 +5147,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SOT78_TO220_NXP"
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown"
 			(at 198.12 83.058 0)
 			(effects
 				(font
