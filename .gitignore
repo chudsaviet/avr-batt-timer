@@ -1,6 +1,7 @@
 # Gerbers
 *.gbr
 *.gbrjob
+*.drl
 
 # MacOS
 .DS_Store
