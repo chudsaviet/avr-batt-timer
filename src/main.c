@@ -46,6 +46,8 @@ void setup() {
 
   // Set ADC muxer to connect to pin 1.
   ADMUX = ADC1;
+  // Disable digital input on all pins - not needed, we just have an analog input on pin 1.
+  DIDR0 = 0xFF;
 
   // Setup watchdog.
   // Set to 2s timeout, enable watchdog interrupt, disable watchdog reset.
@@ -57,9 +59,9 @@ void setup() {
 }
 
 uint8_t read_voltage_units() {
-  // Enable and power on the ADC. Enable interrupt.
-  ADCSRA |= (1 << ADEN) | (1 << ADIE);
-  PRR |= 1 << PRADC;
+  // Power on and enable the ADC. Enable the ADC interrupt.
+  PRR = ~(1 << PRADC);
+  ADCSRA = (1 << ADEN) | (1 << ADIE);
 
   // Go to ADC Noise Reduction sleep mode.
   // ADC conversion will start.
@@ -67,7 +69,13 @@ uint8_t read_voltage_units() {
   sleep_cpu();
 
   // Woke up by the ADC interrupt when converstion has been completed.
-  return ADCL;
+  uint8_t adc_measurement = ADCL;
+
+  // Turn off and power down the ADC.
+  ADCSRA = 0;
+  PRR = 0xFF;
+
+  return adc_measurement;
 }
 
 VoltageState get_voltage_state() {
@@ -81,13 +89,9 @@ VoltageState get_voltage_state() {
   }
 }
 
-void load_off() {
-    PORTB &= ~(1 << PORTB_LOAD_PIN);
-}
+void load_off() { PORTB &= ~(1 << PORTB_LOAD_PIN); }
 
-void load_on() {
-    PORTB |= 1 << PORTB_LOAD_PIN;
-}
+void load_on() { PORTB |= 1 << PORTB_LOAD_PIN; }
 
 int main() {
   setup();
@@ -127,9 +131,6 @@ int main() {
     sei();
 
     // Power down and wait to be woke up by a watchdog interrupt.
-    // Disable and power down ADC and timer.
-    ADCSRA &= ~(1 << ADEN);
-    PRR = (1 << PRADC) | (1 << PRTIM0);
     SMCR = SLEEP_MODE_PWR_DOWN | (1 << SE);
     sleep_cpu();
   }
