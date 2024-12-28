@@ -13,7 +13,7 @@
             "compilerPath": "/opt/homebrew/opt/avr-gcc@14/bin/avr-gcc",
             "compilerArgs": ["-Os", "-mmcu=attiny5"],
             "cStandard": "c23",
-            "intelliSenseMode": "gcc-x86"
+            "intelliSenseMode": "gcc-arm"
         }
     ],
     "version": 4
