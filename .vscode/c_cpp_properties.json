@@ -11,7 +11,7 @@
                 "/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk/System/Library/Frameworks"
             ],
             "compilerPath": "/opt/homebrew/opt/avr-gcc@14/bin/avr-gcc",
-            "compilerArgs": ["-Os", "-mmcu=attiny5"],
+            "compilerArgs": ["-Os", "-mmcu=attiny5", "-std=c23", "-pedantic"],
             "cStandard": "c23",
             "intelliSenseMode": "gcc-arm"
         }

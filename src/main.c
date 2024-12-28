@@ -9,10 +9,14 @@
 // measures in 0-255 units where 255 is the supply voltage. We also have 1/3
 // voltage divider in the circuit.
 #define VOLTAGE_UNITS_ALTERNATOR_ON 225  // ~ 13.2V
-#define VOLTAGE_UNITS_BATTRY_LOW 211     // ~ 12.4V
+#define VOLTAGE_UNITS_BATTERY_LOW 211    // ~ 12.4V
 
-// If an iteration happens every 4 seconds, 225 iterations is approximately 15 minutes.
+// If an iteration happens every 4 seconds, 225 iterations is approximately 15
+// minutes.
 #define LOAD_OFF_TIMEOUT_ITERATIONS_COUNT 225
+
+#define PORTB_ADC_PIN PORTB1
+#define PORTB_LOAD_PIN PORTB2
 
 typedef enum MachineState {
   MACHINE_STATE_ALTERNATOR_ON,
@@ -22,7 +26,7 @@ typedef enum MachineState {
 
 typedef enum VoltageState {
   VOLTAGE_STATE_ALTERNATOR_ON,
-  VOLTAGE_STATE_BATTERY_OK,
+  VOLTAGE_STATE_ALTERNATOR_OFF,
   VOLTAGE_STATE_BATTERY_LOW
 } VoltageState;
 
@@ -35,10 +39,10 @@ void setup() {
   // Divide main clock by 8, which will set clock to 1 MHz.
   CLKPSR = 0b0011;
 
-  // Setup PORTB - all input except PORTB2.
-  DDRB = 1 << PORTB2;
-  // Disable internal pull-up resistor on PORTB1 and PORTB2.
-  PUEB &= ~(1 << PORTB1) & ~(1 << PORTB2);
+  // Setup PORTB - all input except PORTB_LOAD_PIN.
+  DDRB = 1 << PORTB_LOAD_PIN;
+  // Disable internal pull-up resistor on PORTB1 and PORTB_LOAD_PIN.
+  PUEB &= ~(1 << PORTB_ADC_PIN) & ~(1 << PORTB_LOAD_PIN);
 
   // Set ADC muxer to connect to pin 1.
   ADMUX = ADC1;
@@ -68,22 +72,59 @@ uint8_t read_voltage_units() {
 
 VoltageState get_voltage_state() {
   uint8_t voltage_units = read_voltage_units();
-  if (voltage_units <= VOLTAGE_UNITS_BATTRY_LOW) {
+  if (voltage_units <= VOLTAGE_UNITS_BATTERY_LOW) {
     return VOLTAGE_STATE_BATTERY_LOW;
   } else if (voltage_units <= VOLTAGE_UNITS_ALTERNATOR_ON) {
-    return VOLTAGE_STATE_BATTERY_OK;
+    return VOLTAGE_STATE_ALTERNATOR_OFF;
   } else {
     return VOLTAGE_STATE_ALTERNATOR_ON;
   }
 }
 
+void load_off() {
+    PORTB &= ~(1 << PORTB_LOAD_PIN);
+}
+
+void load_on() {
+    PORTB |= 1 << PORTB_LOAD_PIN;
+}
+
 int main() {
   setup();
 
-  MachineState machine_state = set_machine_state(MACHINE_STATE_ALTERNATOR_ON);
-
+  MachineState machine_state = MACHINE_STATE_ALTERNATOR_ON;
+  uint8_t iteration_counter = 0;
   while (true) {
     VoltageState voltage_state = get_voltage_state();
+
+    // Disable all interrupts when running state machine logic.
+    cli();
+    switch (voltage_state) {
+      case VOLTAGE_STATE_BATTERY_LOW:
+        load_off();
+        machine_state = MACHINE_STATE_LOAD_OFF;
+        break;
+      case VOLTAGE_STATE_ALTERNATOR_OFF:
+        if (machine_state == MACHINE_STATE_ALTERNATOR_ON) {
+          iteration_counter = 0;
+        } else {
+          if (iteration_counter >= LOAD_OFF_TIMEOUT_ITERATIONS_COUNT) {
+            load_off();
+          } else {
+            iteration_counter++;
+          }
+        }
+        machine_state = MACHINE_STATE_WAITING;
+        break;
+      case VOLTAGE_STATE_ALTERNATOR_ON:
+        load_on();
+        machine_state = MACHINE_STATE_ALTERNATOR_ON;
+        break;
+      default:
+        break;
+    }
+    // Enable interrupts back.
+    sei();
 
     // Power down and wait to be woke up by a watchdog interrupt.
     // Disable and power down ADC and timer.
