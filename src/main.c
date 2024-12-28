@@ -74,7 +74,7 @@ VoltageState get_voltage_state() {
   uint8_t voltage_units = read_voltage_units();
   if (voltage_units <= VOLTAGE_UNITS_BATTERY_LOW) {
     return VOLTAGE_STATE_BATTERY_LOW;
-  } else if (voltage_units <= VOLTAGE_UNITS_ALTERNATOR_ON) {
+  } else if (voltage_units < VOLTAGE_UNITS_ALTERNATOR_ON) {
     return VOLTAGE_STATE_ALTERNATOR_OFF;
   } else {
     return VOLTAGE_STATE_ALTERNATOR_ON;
