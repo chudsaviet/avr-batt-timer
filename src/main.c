@@ -105,7 +105,7 @@ int main() {
         machine_state = MACHINE_STATE_LOAD_OFF;
         break;
       case VOLTAGE_STATE_ALTERNATOR_OFF:
-        if (machine_state == MACHINE_STATE_ALTERNATOR_ON) {
+        if (machine_state != MACHINE_STATE_WAITING) {
           iteration_counter = 0;
         } else {
           if (iteration_counter >= LOAD_OFF_TIMEOUT_ITERATIONS_COUNT) {
