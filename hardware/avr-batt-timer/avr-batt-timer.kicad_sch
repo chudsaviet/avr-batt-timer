@@ -10,22 +10,23 @@
 		(company "Timofei Korostelev")
 	)
 	(lib_symbols
-		(symbol "Connector:Conn_01x05_Pin"
+		(symbol "Connector:TestPoint"
+			(pin_numbers hide)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 0.762) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "J"
-				(at 0 7.62 0)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "Conn_01x05_Pin"
-				(at 0 -7.62 0)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -33,7 +34,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 0 0 0)
+				(at 5.08 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -42,6 +43,15 @@
 				)
 			)
 			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
 				(at 0 0 0)
 				(effects
 					(font
@@ -50,7 +60,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x05, script generated"
+			(property "ki_keywords" "test point tp"
 				(at 0 0 0)
 				(effects
 					(font
@@ -59,15 +69,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
+			(property "ki_fp_filters" "Pin* Test*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -76,135 +78,24 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
 					)
-					(hide yes)
+					(fill
+						(type none)
+					)
 				)
 			)
-			(symbol "Conn_01x05_Pin_1_1"
-				(polyline
-					(pts
-						(xy 1.27 -5.08) (xy 0.8636 -5.08)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -2.54) (xy 0.8636 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy 0.8636 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 2.54) (xy 0.8636 2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 5.08) (xy 0.8636 5.08)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 0.8636 -4.953)
-					(end 0 -5.207)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 5.207)
-					(end 0 4.953)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
+			(symbol "TestPoint_1_1"
 				(pin passive line
-					(at 5.08 5.08 180)
-					(length 3.81)
-					(name "Pin_1"
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -212,78 +103,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 2.54 180)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -5.08 180)
-					(length 3.81)
-					(name "Pin_5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2472,6 +2291,12 @@
 		(uuid "2a1841ef-df0c-453f-9c6b-1d2f71a6388f")
 	)
 	(junction
+		(at 180.34 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3f70727d-b7d5-4bab-9776-5a9146075be4")
+	)
+	(junction
 		(at 212.09 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2494,12 +2319,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "93b20b97-3071-4dbf-96d3-479ac1df90da")
-	)
-	(junction
-		(at 179.07 101.6)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "98cb9a4b-9aea-4871-88f3-4b8b84c7cce9")
 	)
 	(junction
 		(at 99.06 167.64)
@@ -2565,7 +2384,7 @@
 	)
 	(wire
 		(pts
-			(xy 217.17 71.12) (xy 214.63 71.12)
+			(xy 217.17 71.12) (xy 199.39 71.12)
 		)
 		(stroke
 			(width 0)
@@ -2635,7 +2454,7 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 101.6) (xy 194.31 101.6)
+			(xy 151.13 101.6) (xy 194.31 101.6)
 		)
 		(stroke
 			(width 0)
@@ -2662,6 +2481,16 @@
 			(type default)
 		)
 		(uuid "619c26a0-8093-4bc5-b911-61a241ad12c0")
+	)
+	(wire
+		(pts
+			(xy 179.07 91.44) (xy 180.34 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68cbf9a8-5110-49a9-8762-926975ad093b")
 	)
 	(wire
 		(pts
@@ -2712,16 +2541,6 @@
 			(type default)
 		)
 		(uuid "79e84a30-7a12-4e46-bbad-862bf4e9e8e3")
-	)
-	(wire
-		(pts
-			(xy 179.07 113.03) (xy 179.07 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "84969f55-15d1-4d2d-b77c-2301f88cde3b")
 	)
 	(wire
 		(pts
@@ -2802,16 +2621,6 @@
 			(type default)
 		)
 		(uuid "b2e9642f-7a1c-484b-92e1-459a83cfdecd")
-	)
-	(wire
-		(pts
-			(xy 151.13 101.6) (xy 179.07 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b4db1f3c-f0f5-400c-abb8-78f6770607db")
 	)
 	(wire
 		(pts
@@ -2945,6 +2754,16 @@
 	)
 	(wire
 		(pts
+			(xy 180.34 99.06) (xy 184.15 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ed7a6821-1ffb-4997-9493-2d03a67a3a0f")
+	)
+	(wire
+		(pts
 			(xy 217.17 71.12) (xy 245.11 71.12)
 		)
 		(stroke
@@ -2992,6 +2811,16 @@
 			(type default)
 		)
 		(uuid "fd4bee13-16b8-4e6e-b97a-7865eb37d768")
+	)
+	(wire
+		(pts
+			(xy 180.34 91.44) (xy 180.34 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff9cc322-a5e9-48f8-89f9-a46c63fe3678")
 	)
 	(wire
 		(pts
@@ -3093,7 +2922,7 @@
 	)
 	(global_label "TPICLK"
 		(shape input)
-		(at 179.07 113.03 180)
+		(at 179.07 91.44 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3103,7 +2932,7 @@
 		)
 		(uuid "b1382454-334c-4e1d-98c9-5477d4a003cc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 169.6743 113.03 0)
+			(at 169.6743 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3137,7 +2966,7 @@
 	)
 	(global_label "VSENSE"
 		(shape input)
-		(at 180.34 99.06 0)
+		(at 184.15 99.06 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3147,7 +2976,7 @@
 		)
 		(uuid "db686379-cee0-44d0-aea0-c32eb4ff4620")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 190.4613 99.06 0)
+			(at 194.2713 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3203,7 +3032,7 @@
 	)
 	(global_label "LOAD"
 		(shape passive)
-		(at 214.63 71.12 180)
+		(at 199.39 71.12 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3213,7 +3042,7 @@
 		)
 		(uuid "f8ac9709-9719-4ad6-97b8-1ecd29758938")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.0389 71.12 0)
+			(at 192.7989 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3356,6 +3185,71 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 41.91 102.87 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "043035ea-de41-4633-8e96-0af02a92b039")
+		(property "Reference" "TP4"
+			(at 34.798 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TCLK"
+			(at 38.608 100.33 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Plated_Hole_D2.0mm"
+			(at 41.91 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 41.91 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 41.91 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b6998dd0-f475-4ae5-b77d-860666139b26")
+		)
+		(instances
+			(project "avr-batt-timer"
+				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
+					(reference "TP4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VDD")
 		(at 217.17 41.91 0)
 		(unit 1)
@@ -3416,6 +3310,71 @@
 			(project "avr-batt-timer"
 				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
 					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 41.91 105.41 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "16f387c1-5da3-4bcc-a1e7-6493f0eaf38c")
+		(property "Reference" "TP5"
+			(at 34.798 105.41 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.608 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Plated_Hole_D2.0mm"
+			(at 41.91 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 41.91 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 41.91 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c2c98ee3-4c59-4059-bda5-81d7549f488d")
+		)
+		(instances
+			(project "avr-batt-timer"
+				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
+					(reference "TP5")
 					(unit 1)
 				)
 			)
@@ -4180,83 +4139,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x05_Pin")
-		(at 36.83 100.33 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "707b03cc-d838-4737-ac7d-0f89bd66e697")
-		(property "Reference" "J3"
-			(at 37.465 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x05_Pin"
-			(at 37.465 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
-			(at 36.83 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 36.83 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x05, script generated"
-			(at 36.83 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3500c4b6-eb2c-4595-a976-dfc73ea75703")
-		)
-		(pin "5"
-			(uuid "46c999aa-97a7-48cb-89a9-32fc078af93d")
-		)
-		(pin "3"
-			(uuid "42cf9894-af16-48c4-b208-545e9205a095")
-		)
-		(pin "2"
-			(uuid "8253bf0d-7a33-405e-bb5d-1dc6db19db1c")
-		)
-		(pin "4"
-			(uuid "015dc671-56b5-41a8-9935-9c8537b75b2e")
-		)
-		(instances
-			(project ""
-				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
-					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 48.26 165.1 0)
 		(unit 1)
@@ -4457,6 +4339,136 @@
 			(project ""
 				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
 					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 41.91 97.79 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9a4778d9-303f-44a4-9638-8f78f94ed6c3")
+		(property "Reference" "TP2"
+			(at 34.798 97.79 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "RST"
+			(at 38.608 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Plated_Hole_D2.0mm"
+			(at 41.91 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 41.91 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 41.91 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5dd300ad-0738-419f-9888-11c41ec0e773")
+		)
+		(instances
+			(project "avr-batt-timer"
+				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
+					(reference "TP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 41.91 95.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9c925f48-5157-4224-941a-1c2a06967d6d")
+		(property "Reference" "TP1"
+			(at 34.798 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 38.608 92.71 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Plated_Hole_D2.0mm"
+			(at 41.91 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 41.91 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 41.91 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c52a340c-2fec-4824-8a78-cc331e76484a")
+		)
+		(instances
+			(project ""
+				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -5114,6 +5126,71 @@
 			(project ""
 				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 41.91 100.33 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e71981c8-8aae-48c1-8aa9-dd1eb6d34daf")
+		(property "Reference" "TP3"
+			(at 34.798 100.33 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TDAT"
+			(at 38.608 97.79 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Plated_Hole_D2.0mm"
+			(at 41.91 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 41.91 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 41.91 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "57af742d-baa0-4c83-adb1-4d472060bc8a")
+		)
+		(instances
+			(project "avr-batt-timer"
+				(path "/3df09f8e-c59c-4ad6-a416-97010d9cd963"
+					(reference "TP3")
 					(unit 1)
 				)
 			)
